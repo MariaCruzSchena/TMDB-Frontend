@@ -25,10 +25,11 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function SearchBar() {
-  const classes = useStyles();
-  const dispatch = useDispatch();
-  const searchInput = useInput();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const classes = useStyles();
+  const searchInput = useInput();
+  
   
   //Functions
   const handleSubmit = (e) => {
