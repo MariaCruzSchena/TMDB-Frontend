@@ -1,11 +1,10 @@
 import React from "react";
-import TextField from "@material-ui/core/TextField";
-import { makeStyles } from "@material-ui/core/styles";
+import TextField from "@mui/material/TextField";
+import { makeStyles } from "@mui/styles";
 import { setSearchQuery } from "../store/search";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import useInput from "../hooks/useInput";
-
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -29,9 +28,8 @@ function SearchBar() {
   const dispatch = useDispatch();
   const classes = useStyles();
   const searchInput = useInput();
-  
-  
-  //Functions
+
+  // Functions
   const handleSubmit = (e) => {
     e.preventDefault();
     const queryState = searchInput.value;
@@ -45,7 +43,7 @@ function SearchBar() {
         className={classes.root}
         type="search"
         placeholder="Search"
-        {...searchInput}
+        {...searchInput.bindings}
         variant="standard"
         size="small"
         style={{ marginRight: " 2rem" }}
