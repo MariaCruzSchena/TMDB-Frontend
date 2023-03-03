@@ -1,0 +1,27 @@
+@import "./mixins";
+@import "./maps";
+@import "./variables";
+
+//NAVBAR
+.navbarContainer {
+  position: sticky;
+  top: 0;
+  background-color: $navbar-background-color;
+  @include flex(row, space-between, center);
+  padding: 0rem 1rem;
+  height: 4rem;
+}
+.navbarLogo {
+  margin: 0;
+  color: $logo-user-color;
+  font-size: map-get($font-size, "large");
+}
+.navbarLinksWrapper {
+  @include flex(row, space-evenly, center);
+}
+.navbarLinks {
+  color: $primary-color;
+  margin-right: map-get($font-size, "large");
+  font-size: map-get($font-size, "small");
+  text-decoration: none;
+}

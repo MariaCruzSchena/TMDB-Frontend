@@ -1,0 +1,85 @@
+@import "./mixins";
+@import "./maps";
+@import "./variables";
+
+//DETAILS
+.detailContainer {
+  @include flex(column, space-evenly, center);
+  overflow: hidden;
+}
+
+.detailTopWrapper {
+  position: relative;
+  width: 100vw;
+  height: 80vh;
+}
+
+.detailImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.detailTitle {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem;
+  background: linear-gradient(to top, rgba(0, 0, 0, 1), transparent);
+  color: $primary-color;
+  font-weight: bold;
+  font-size: map-get($font-size, "x-large");
+  line-height: 3.5rem;
+  text-shadow: 0px 0px 10px $login-background-color;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.detailBottomWrapper {
+  @include flex(row, space-evenly, flex-start);
+  padding: 2rem;
+  width: 95vw;
+}
+
+.detailBottomLeftWrapper {
+  @include flex(column, space-evenly, flex-start);
+  width: 60vw;
+  padding-right: 4rem;
+}
+
+.detailBottomLeftUpperWrapper {
+  @include flex(row, flex-start, center);
+  margin-bottom: 1.5rem;
+}
+
+.detailUpperWrapperInfo {
+  color: $primary-color;
+  margin-right: 1.5rem;
+  font-size: map-get($font-size, "x-small");
+}
+
+.detailBottomWrapperInfo {
+  color: $primary-color;
+  font-size: map-get($font-size, "small");
+  line-height: 1.5rem;
+}
+
+.detailBottomRightWrapper {
+  @include flex(column, flex-start, flex-start);
+  width: 20vw;
+  margin-top: 4rem;
+}
+
+.detailExtraInfo {
+  color: $primary-color;
+  font-size: map-get($font-size, "x-small");
+  line-height: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.detailSpans {
+  color: $primary-color;
+  font-weight: bold;
+}

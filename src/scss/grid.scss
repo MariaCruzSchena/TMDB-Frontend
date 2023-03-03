@@ -1,0 +1,25 @@
+@import "./mixins";
+@import "./maps";
+@import "./variables";
+
+//GRID
+
+.gridContainer {
+  width: 90%;
+  margin: 0 auto;
+  //padding: 2rem 0;
+}
+
+.gridWrapper {
+  @include flex(row, center, center);
+  flex-wrap: wrap;
+}
+
+.gridTitle {
+  color: $primary-color;
+  font-size: map-get($font-size, "medium");
+}
+
+.itemWrapper {
+  margin: .5rem;
+}

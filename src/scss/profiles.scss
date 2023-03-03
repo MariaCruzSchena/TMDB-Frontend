@@ -1,0 +1,27 @@
+@import "./mixins";
+@import "./maps";
+@import "./variables";
+
+//PROFILES
+.profileContainer {
+  @include flex(column, space-evenly, center);
+  margin-top: 3rem;
+}
+
+.profileTitle {
+  color: $primary-color;
+  font-size: map-get($font-size, "large");
+  margin-top: 2rem;
+}
+
+.profileMainWrapper {
+  @include flex(column, space-evenly, center);
+}
+
+.profileSecondaryWrapper {
+  @include flex(row, space-evenly, center);
+  margin: 1rem;
+  flex-wrap: wrap;
+}
+
+

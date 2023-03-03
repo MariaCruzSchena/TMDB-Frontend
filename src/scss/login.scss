@@ -1,0 +1,102 @@
+@import "./mixins";
+@import "./maps";
+@import "./variables";
+
+//LOGIN
+.loginContainer {
+  background-image: url(../assets/loginBackground.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+  padding-top: 25vh;
+}
+
+.loginForm {
+  background-color: $login-background-color;
+  width: 20%;
+  margin: auto;
+  padding: 1rem;
+  border-radius: 0.4rem;
+
+  @media screen and (max-width: 1064px) {
+    width: 30%;
+  }
+}
+
+.loginWrapper {
+  @include flex(column, space-evenly, center);
+}
+
+.loginErrorMessage {
+  background-color: $error-background-color;
+  padding: 1rem;
+  border-radius: 5px;
+  width: 70%;
+  font-size: map-get($font-size, "x-small");
+  font-weight: 500;
+  text-align: center;
+  color: $primary-color;
+}
+
+.loginTitleWrapper {
+  @include flex(column, flex-start, center);
+}
+
+.loginTitle {
+  color: $primary-color;
+  font-size: map-get($font-size, "large");
+  font-weight: 700;
+  margin-bottom: 28px;
+}
+
+.loginInput {
+  box-sizing: border-box;
+  font-family: inherit;
+  height: 50px;
+  padding: 16px 20px 0 20px;
+  font-size: map-get($font-size, "x-small");
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  background-color: $secondary-color;
+  color: $primary-color;
+  width: 70%;
+  margin: 1rem;
+}
+
+.loginButton {
+  height: 50px;
+  margin-top: 24px;
+  cursor: pointer;
+  font-size: map-get($font-size, "x-small");
+  font-weight: 700;
+  border-radius: 5px;
+  border: none;
+  color: $primary-color;
+  background-color: $logo-user-color;
+  width: 50%;
+  margin: 1rem;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.loginNavigateWrapper {
+  @include flex(row, center, center);
+  margin-top: 24px;
+}
+
+.loginSubtitle {
+  color: #444;
+  font-size: map-get($font-size, "x-small");
+  font-weight: 500;
+  margin-right: 1rem;
+}
+
+.loginParagraph {
+  color: $primary-color;
+  font-size: map-get($font-size, "x-small");
+  font-weight: 500;
+  text-decoration: none;
+}
