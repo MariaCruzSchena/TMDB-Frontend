@@ -1,0 +1,9 @@
+@import "./mixins";
+@import "./maps";
+@import "./variables";
+
+//SIGNUP
+.signUpWrapper {
+    @include flex(row, center, center);
+    margin-top: 24px;
+  }

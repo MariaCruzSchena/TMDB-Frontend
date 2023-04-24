@@ -1,0 +1,31 @@
+@import "./mixins";
+@import "./maps";
+@import "./variables";
+
+//BANNER
+.bannerContainer {
+  background-image: url(../assets/loginBackground.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+  padding-top: 30vh;
+}
+
+.bannerWrapper {
+  background-color: $login-background-color;
+  width: 40%;
+  margin-top: 15vh;
+  margin: auto;
+  padding: 1rem;
+}
+
+
+.bannerSubtitle {
+  font-size: map-get($font-size, "medium");
+  color: $primary-color;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: 0.02em;
+  text-shadow: 0 1px 0 #00000030;
+}
