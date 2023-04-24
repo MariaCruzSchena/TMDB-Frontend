@@ -23,7 +23,7 @@ const Profiles = () => {
 
   useEffect(() => {
     console.log("ESTE ES EL ID", userSearch);
-    axios(`/api/user/${userSearch}/favorites`, {
+    axios(`https://tmdb-rptq.onrender.com/api/user/${userSearch}/favorites`, {
       withCredentials: true,
       credentials: "include",
     }).then((res) => {

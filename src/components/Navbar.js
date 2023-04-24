@@ -37,7 +37,7 @@ function Navbar() {
   };
 
   const handleLogOut = async () => {
-    await axios.post("/api/user/logout", {
+    await axios.post("https://tmdb-rptq.onrender.com/api/user/logout", {
       withCredentials: true,
       credentials: "include",
     });

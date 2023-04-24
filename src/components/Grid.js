@@ -23,7 +23,7 @@ const ContentGrid = () => {
   const itemDetailHandler = async (item) => {
     try {
       const res = await axios.get(
-        `/api/search/${item.id}?type=${item.media_type}`,
+        `https://tmdb-rptq.onrender.com/api/search/${item.id}?type=${item.media_type}`,
         { withCredentials: true, credentials: "include" }
       );
       dispatch(setSelectedItem(res.data));

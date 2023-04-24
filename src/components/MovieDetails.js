@@ -31,14 +31,17 @@ const MovieDetails = () => {
     if (!isInFavorites) {
       try {
         const res = await axios.post(
-          `/api/user/${user.id}/favorites?type=movie`,
+          `https://tmdb-rptq.onrender.com/api/user/${user.id}/favorites?type=movie`,
           { item },
           { withCredentials: true, credentials: "include" }
         );
-        const favoritesRes = await axios.get(`/api/user/${user.id}/favorites`, {
-          withCredentials: true,
-          credentials: "include",
-        });
+        const favoritesRes = await axios.get(
+          `https://tmdb-rptq.onrender.com/api/user/${user.id}/favorites`,
+          {
+            withCredentials: true,
+            credentials: "include",
+          }
+        );
         dispatch(setFavorites(favoritesRes.data));
         localStorage.setItem("favorites", JSON.stringify(favoritesRes.data));
       } catch {
@@ -47,13 +50,16 @@ const MovieDetails = () => {
     } else {
       try {
         const res = await axios.delete(
-          `/api/user/${user.id}/favorites?type=movie&mediaId=${item.id}`,
+          `https://tmdb-rptq.onrender.com/api/user/${user.id}/favorites?type=movie&mediaId=${item.id}`,
           { withCredentials: true, credentials: "include" }
         );
-        const favoritesRes = await axios.get(`/api/user/${user.id}/favorites`, {
-          withCredentials: true,
-          credentials: "include",
-        });
+        const favoritesRes = await axios.get(
+          `https://tmdb-rptq.onrender.com/api/user/${user.id}/favorites`,
+          {
+            withCredentials: true,
+            credentials: "include",
+          }
+        );
         dispatch(setFavorites(favoritesRes.data));
         localStorage.setItem("favorites", JSON.stringify(favoritesRes.data));
       } catch {

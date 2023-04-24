@@ -22,7 +22,7 @@ const Login = ({ interaction }) => {
   //Variables and states
   const [error, setError] = useState("");
   const typeOfEnrollment = enroll ? enroll : interaction;
-  const postUserRoute = `/api/user/${typeOfEnrollment}`;
+  const postUserRoute = `https://tmdb-rptq.onrender.com/api/user/${typeOfEnrollment}`;
   const postInfo =
     typeOfEnrollment === "login"
       ? { email: email.value, password: password.value }
@@ -42,17 +42,20 @@ const Login = ({ interaction }) => {
 
       //Get users favorites
       const favoritesResponse = await axios.get(
-        `/api/user/${response.data.id}/favorites`,
+        `https://tmdb-rptq.onrender.com/api/user/${response.data.id}/favorites`,
         { withCredentials: true, credentials: "include" }
       );
       localStorage.setItem("favorites", JSON.stringify(favoritesResponse.data));
       dispatch(setFavorites(favoritesResponse.data));
 
       //Get users in db
-      const DBUsersResponse = await axios.get("/api/user", {
-        withCredentials: true,
-        credentials: "include",
-      });
+      const DBUsersResponse = await axios.get(
+        "https://tmdb-rptq.onrender.com/api/user",
+        {
+          withCredentials: true,
+          credentials: "include",
+        }
+      );
       localStorage.setItem("dbUsers", JSON.stringify(DBUsersResponse.data));
       dispatch(setDBUsers(DBUsersResponse.data));
 

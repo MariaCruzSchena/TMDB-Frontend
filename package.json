@@ -29,8 +29,7 @@
     "server": "nodemon api/server.js",
     "client": "react-scripts start",
     "build": "react-scripts build"
-  },
-  "proxy": "https://tmdb-rptq.onrender.com",
+  }, 
   "eslintConfig": {
     "extends": [
       "react-app",
