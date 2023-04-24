@@ -1,6 +1,7 @@
 {
   "name": "26-tmdb",
   "version": "0.2.0",
+  "author": "Maria Cruz Schena",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.10.6",
@@ -18,6 +19,10 @@
     "react-router-dom": "^6.8.1",
     "react-scripts": "^4.0.3",
     "redux": "^4.2.1"
+  },
+  "engines": {
+    "node": "16.19.0",
+    "npm": "8.19.3"
   },
   "scripts": {
     "start": "npm run client",
