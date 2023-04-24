@@ -37,7 +37,10 @@ function Navbar() {
   };
 
   const handleLogOut = async () => {
-    await axios.post("/api/user/logout");
+    await axios.post("/api/user/logout", {
+      withCredentials: true,
+      credentials: "include",
+    });
     localStorage.removeItem("user");
     navigate("/");
     window.location.reload();

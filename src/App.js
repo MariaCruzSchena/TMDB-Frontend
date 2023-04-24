@@ -19,7 +19,7 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    axios.get(`/api/search?query=${searchQuery}`).then((res) => {
+    axios.get(`/api/search?query=${searchQuery}`, { withCredentials: true,  credentials: 'include'}).then((res) => {
       dispatch(setSearchedMultimedia(res.data));
       dispatch(setMovies(res.data));
       dispatch(setTv(res.data));

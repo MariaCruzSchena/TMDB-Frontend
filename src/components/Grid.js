@@ -23,7 +23,8 @@ const ContentGrid = () => {
   const itemDetailHandler = async (item) => {
     try {
       const res = await axios.get(
-        `/api/search/${item.id}?type=${item.media_type}`
+        `/api/search/${item.id}?type=${item.media_type}`,
+        { withCredentials: true, credentials: "include" }
       );
       dispatch(setSelectedItem(res.data));
       navigate(`/search/${item.media_type}/${item.id}`);

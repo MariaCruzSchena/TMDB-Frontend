@@ -33,19 +33,26 @@ const Login = ({ interaction }) => {
     e.preventDefault();
     try {
       //Login request
-      const response = await axios.post(postUserRoute, postInfo);
+      const response = await axios.post(postUserRoute, postInfo, {
+        withCredentials: true,
+        credentials: "include",
+      });
       dispatch(setUser(response.data));
       localStorage.setItem("user", JSON.stringify(response.data));
 
       //Get users favorites
       const favoritesResponse = await axios.get(
-        `/api/user/${response.data.id}/favorites`
+        `/api/user/${response.data.id}/favorites`,
+        { withCredentials: true, credentials: "include" }
       );
       localStorage.setItem("favorites", JSON.stringify(favoritesResponse.data));
       dispatch(setFavorites(favoritesResponse.data));
 
       //Get users in db
-      const DBUsersResponse = await axios.get("/api/user");
+      const DBUsersResponse = await axios.get("/api/user", {
+        withCredentials: true,
+        credentials: "include",
+      });
       localStorage.setItem("dbUsers", JSON.stringify(DBUsersResponse.data));
       dispatch(setDBUsers(DBUsersResponse.data));
 

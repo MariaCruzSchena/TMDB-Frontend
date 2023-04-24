@@ -23,7 +23,10 @@ const Profiles = () => {
 
   useEffect(() => {
     console.log("ESTE ES EL ID", userSearch);
-    axios(`/api/user/${userSearch}/favorites`).then((res) => {
+    axios(`/api/user/${userSearch}/favorites`, {
+      withCredentials: true,
+      credentials: "include",
+    }).then((res) => {
       setThisFavs(res.data);
     });
   }, [userSearch]);

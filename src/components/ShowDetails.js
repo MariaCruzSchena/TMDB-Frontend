@@ -7,7 +7,7 @@ import noBackdropAvailable from "../assets/noBackdropAvailable.jpg";
 
 const ShowDetails = () => {
   const dispatch = useDispatch();
-  
+
   //States
   const item = useSelector((state) => state.item);
   const user = useSelector((state) => state.user);
@@ -30,17 +30,28 @@ const ShowDetails = () => {
   const favoriteHandler = async () => {
     try {
       if (!isInFavorites) {
-        const res = await axios.post(`/api/user/${user.id}/favorites?type=tv`, {
-          item,
-        });        
-        const favoritesRes = await axios.get(`/api/user/${user.id}/favorites`);        
+        const res = await axios.post(
+          `/api/user/${user.id}/favorites?type=tv`,
+          {
+            item,
+          },
+          { withCredentials: true, credentials: "include" }
+        );
+        const favoritesRes = await axios.get(`/api/user/${user.id}/favorites`, {
+          withCredentials: true,
+          credentials: "include",
+        });
         dispatch(setFavorites(favoritesRes.data));
         localStorage.setItem("favorites", JSON.stringify(favoritesRes.data));
       } else {
         const res = await axios.delete(
-          `/api/user/${user.id}/favorites?type=tv&mediaId=${item.id}`
+          `/api/user/${user.id}/favorites?type=tv&mediaId=${item.id}`,
+          { withCredentials: true, credentials: "include" }
         );
-        const favoritesRes = await axios.get(`/api/user/${user.id}/favorites`);
+        const favoritesRes = await axios.get(`/api/user/${user.id}/favorites`, {
+          withCredentials: true,
+          credentials: "include",
+        });
         dispatch(setFavorites(favoritesRes.data));
         localStorage.setItem("favorites", JSON.stringify(res.data));
       }
@@ -49,7 +60,6 @@ const ShowDetails = () => {
     }
   };
 
-  
   return (
     <div className="detailContainer">
       <div className="detailTopWrapper">
@@ -74,7 +84,10 @@ const ShowDetails = () => {
             <span className="detailUpperWrapperInfo">
               {!item.adult ? "ATP" : "18+"}
             </span>
-            <span className="detailUpperWrapperInfo" style={{cursor:"pointer"}}>
+            <span
+              className="detailUpperWrapperInfo"
+              style={{ cursor: "pointer" }}
+            >
               {!isInFavorites ? (
                 <FaPlus onClick={favoriteHandler} />
               ) : (

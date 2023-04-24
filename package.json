@@ -25,7 +25,7 @@
     "client": "react-scripts start",
     "build": "react-scripts build"
   },
-  "proxy": "http://localhost:3001",
+  "proxy": "https://tmdb-rptq.onrender.com",
   "eslintConfig": {
     "extends": [
       "react-app",
