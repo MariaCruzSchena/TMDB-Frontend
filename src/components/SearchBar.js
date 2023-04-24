@@ -30,11 +30,13 @@ function SearchBar() {
         sx={{
           marginRight: "2rem",
           backgroundColor: "black",
+          opacity: "75%",
           "& .MuiInputBase-input": {
             color: "#fff", 
           },
           "& .MuiInputBase-input:after": {
             backgroundColor: "black", 
+            opacity: "75%"
           },
           "& .MuiInput-underline:before": {
             borderBottomColor: "#fff",
